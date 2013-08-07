@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{newsAddBean.loadNewsMessage}" />
+    </f:metadata>
+    <h:body>
+        <ui:composition template="/pages/layout/layout.xhtml">
+            <ui:define name="content">
+                <div id="location">
+                    <span>#{msg['other.news']}</span><i> >> </i>
+                    #{msg['add.location']}
+                </div>
+                <div id="newsAdd">
+                    <h:form>
+                        <dl>
+                            <dt>
+                                <label for="title">#{msg['add.Txt001']}</label>
+                            </dt>
+                            <dd>
+                                <h:inputText value="#{newsAddBean.newsMessage.title}"  class="title" />
+                            </dd>
+                            <dt>
+                                <label for="date">#{msg['add.Txt003']}</label>
+                            </dt>
+                            <dd>
+                                <h:inputText value="#{newsAddBean.date}" class="date"/>
+                            </dd>
+                            <dt>
+                                <label for="brief">#{msg['add.TxtA001']}</label>
+                            </dt>
+                            <dd>
+                                <h:inputTextarea value="#{newsAddBean.newsMessage.brief}" class="brief"
+                                                 cols="40" rows="5" />
+                            </dd>
+                            <dt>
+                                <label for="cont">#{msg['add.TxtA002']}</label>
+                            </dt>
+                            <dd>
+                                <h:inputTextarea value="#{newsAddBean.newsMessage.content}" class="cont"
+                                                 cols="40" rows="10" />
+                            </dd>
+                        </dl>
+                        <div class="submit-button btn1" >
+                            <script>
+                                var titleMsg = '#{msg['view.Lbl001']}';
+                                var dateMsg = '#{msg['view.Lbl002']}';
+                                var briefMsg = '#{msg['view.Lbl003']}';
+                                var contentMsg = '#{msg['view.Lbl004']}';
+                                var required = '#{msg['other.required']}';
+                                var invalid = '#{msg['other.invalid']}';
+                            </script>
+                            <h:commandButton onclick="return validateSave();" 
+                                             action="#{newsAddBean.saveNewsMessage}"
+                                             value="#{msg['add.Btn001']}">
+                                <f:param name="id" value="#{newsAddBean.id}" />
+                            </h:commandButton>
+                            <h:commandButton action="#{newsAddBean.cancel}"
+                                             value="#{msg['add.Btn002']}">
+                            </h:commandButton>
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

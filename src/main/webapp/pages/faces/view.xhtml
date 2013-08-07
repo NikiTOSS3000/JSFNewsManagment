@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{newsViewBean.loadNewsMessage}" />
+    </f:metadata>
+    <h:body>
+        <ui:composition template="/pages/layout/layout.xhtml">
+            <ui:define name="content">
+                <div id="location">
+                    <span>#{msg['other.news']}</span><i> >> </i>#{msg['view.location']}
+                </div>
+                <div id ="newsView">
+                    <h:form>
+                        <dl>
+                            <dt>
+                                <label for="title">#{msg['view.Lbl001']}</label>
+                            </dt>
+                            <dd>
+                                <div id="title">#{newsViewBean.newsMessage.title}</div>
+                            </dd>
+                            <dt>
+                                <label for="date">#{msg['view.Lbl002']}</label>
+                            </dt>
+                            <dd>
+                                <div id="date">
+                                    <h:outputText value="#{newsViewBean.newsMessage.date}">  
+                                        <f:convertDateTime pattern="MM/dd/yyyy"/>  
+                                    </h:outputText> 
+                                </div>
+                            </dd>
+                            <dt>
+                                <label for="brief">#{msg['view.Lbl003']}</label>
+                            </dt>
+                            <dd>
+                                <div id="brief">#{newsViewBean.newsMessage.brief}</div>
+                            </dd>
+                            <dt>
+                                <label for="cont">#{msg['view.Lbl004']}</label>
+                            </dt>
+                            <dd>
+                                <div id="cont">#{newsViewBean.newsMessage.content}</div>
+                            </dd>
+                        </dl>
+                        <div class="submit-button">
+                            <script>
+                                var msg = '#{msg['view.E08']}';
+                            </script>
+                            <h:commandButton action="#{newsAddBean.add}"
+                                             value="#{msg['view.Btn001']}">
+                                <f:setPropertyActionListener target="#{newsAddBean.id}"
+                                                             value="#{newsViewBean.id}" />
+                                <f:setPropertyActionListener target="#{newsAddBean.fromVeiw}"
+                                                             value="true" />
+                                <f:setPropertyActionListener target="#{newsAddBean.newsMessage}"
+                                                             value="#{newsViewBean.newsMessage}" />
+                            </h:commandButton>
+                            <h:commandButton action="#{newsViewBean.deleteNewsMessage}"
+                                             onclick="return confirm(msg);"
+                                             value="#{msg['view.Btn002']}">
+                                <f:setPropertyActionListener target="#{newsViewBean.id}"
+                                                             value="#{newsViewBean.id}" />
+                            </h:commandButton>
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

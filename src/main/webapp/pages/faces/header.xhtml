@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:outputLink value="list.xhtml">
+        <h1>
+            #{msg['other.system']}
+        </h1>
+    </h:outputLink>
+    <div id="lang">
+        <f:view locale="#{localeBean.locale}"/>	
+        <h:form>
+            <h:commandLink action="#{localeBean.changeLocale}" value="#{msg['other.eng']}" immediate="true">
+                <f:setPropertyActionListener target="#{localeBean.locale}"
+                                             value="#{msg['locale.eng']}" />
+            </h:commandLink>
+            &nbsp;
+            <h:commandLink action="#{localeBean.changeLocale}" value="#{msg['other.rus']}" immediate="true">
+                <f:setPropertyActionListener target="#{localeBean.locale}"
+                                             value="#{msg['locale.rus']}" />
+            </h:commandLink>
+        </h:form>
+    </div>
+</html>

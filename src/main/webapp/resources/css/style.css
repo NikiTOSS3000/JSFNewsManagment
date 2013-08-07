@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+a {
+    color: blue;
+    outline: none;
+    text-decoration: underline;
+}
+a:hover {
+    text-decoration: none;
+}
+p {
+    margin: 0 0 18px
+}
+img {
+    border: none;
+}
+input {
+    vertical-align: middle;
+}
+
+#wrapper {
+    width: 800px;
+    margin: 0 auto;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    border-left: 2px black solid;
+    border-right: 2px black solid;
+    overflow: hidden;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+    height: 80px;
+    border-bottom: 2px black solid;
+    border-top: 2px black solid;
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 28px;
+    margin-left: 35px;
+    color: #220099;
+}
+
+#lang {
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#header a {
+    text-decoration: none;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+    width: 100%;
+    padding: 0 0 20px;
+    height: 1%;
+    position: relative;
+}
+
+#middle:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+#container {
+    width: 100%;
+    float: left;
+    padding-bottom: 50px;
+}
+
+#content {
+    padding: 0 0 0 212px;
+}
+
+#news {
+    border: 1px solid #bbb;
+    margin-top: 8px;
+    margin-right: 5px;
+    padding: 10px;
+    padding-left: 30px;
+}
+
+#location span {
+    color: #888;
+    text-decoration: underline;
+}
+
+#location i {
+    color: #888;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+h3 span {
+    color: gray;
+    font-size: smaller;
+}
+
+#errors {
+    margin-bottom: 20px;
+    padding: 0.5em 2em;
+    background-color: #fc6;
+    border: 2px solid orange;
+    border-radius: 10px;
+}
+/* News List 
+---------------------------*/
+#newsList {
+    padding: 20px;
+}
+
+.newsEntry {
+    padding: 20px;
+}
+
+.newsDate {
+    float: right;
+    margin-right: 20px;
+    text-decoration: underline;
+}
+.newsBrief {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.newsLinks {
+    float: right;
+}
+
+.newsLinks a {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: smaller;
+}
+
+.newsLinks a:hover {
+    color: orange;
+}
+
+.cf {
+    clear: both;
+    visibility: hidden;
+    height: 30px;
+    margin: 0;
+}
+/* News View
+----------------------------*/
+#newsView {
+    padding: 20px;
+}
+
+#newsView label {
+    color: #888;
+}
+.fake {
+    margin-top: -48px;
+    margin-right: 100px;
+}
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+    float: left;
+    width: 200px;
+    margin-left: -100%;
+    position: relative;
+    text-align: center;
+}
+#menu {
+    background-color: #ccc;
+    margin-top: 8px;
+    margin-left: 10px;
+    padding-top: 12px;
+    padding-bottom: 25px;
+    padding-right: 5px;
+}
+
+h2 {
+    display: block;
+    background-color: gray;
+    font-size: 14px;
+    color: white;
+    margin-left: 8px;
+    margin-right: -5px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+
+#menuList {
+    background-color: white;
+    margin-top: 4px;
+    margin-left: 40px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+#menuList li {
+    padding: 4px;
+    padding-left:40px;
+    list-style: none;
+}
+
+.currentLink {
+    color: orange;
+}
+
+/* Form
+-----------------------------------------------------------------------------*/
+form {
+    margin: 0.5em 0;
+    padding: 0;
+    float: left;
+    width: 100%;
+}
+
+form dl {
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 100%;
+}
+
+form dt {
+    padding: 0;
+    margin: 0.7em 1em 0.5em 0;
+    width: 100px;
+    float: left;
+    clear: left;
+    text-align: left;
+}
+
+form dd {
+    margin: 0;
+    padding: 0.5em 0;
+    width: 70%;
+    float: left;
+    line-height: 1.5;
+    font-weight: bold;
+}
+form .submit-button {
+    clear: left;
+    padding: 0.5em 0 1em 1.2em;
+    font-size: 80%;
+    text-align: right;
+}
+form label {
+    cursor: pointer;
+}
+
+form fieldset {
+    clear: left;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    margin: 1em 0;
+}
+
+form fieldset legend {
+    color: #999;
+}
+
+form fieldset dt {
+    margin-left: -0.25em;
+}
+
+form textarea {
+    width: 100%;
+}
+/* News Add
+----------------------------*/
+#newsAdd {
+    padding: 20px;
+}
+
+#newsAdd .submit-button {
+    text-align: center;
+}
+
+#title {
+    width: 100%;
+}
+
+.btn1 {
+    margin-left: -90px;
+}
+
+.btn2 {
+    width:80px;
+    margin-top: -48px;
+    margin-left: 350px;
+}
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+    width: 800px;
+    margin: -24px auto 0;
+    height: 20px;
+    position: relative;
+    text-align: center;
+    border: 2px black solid;
+}

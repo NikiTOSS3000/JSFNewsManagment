@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+    <class name="com.epam.jsf.model.News" 
+        table="News" >
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="title" type="string">
+            <column name="title" />
+        </property>
+        <property name="brief" type="string">
+            <column name="brief" not-null="true" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" not-null="true" />
+        </property>
+        <property name="date" type="date">
+            <column name="data"/>
+        </property>
+    </class>
+    <query name="getList">
+        <![CDATA[from News order by date desc]]>
+    </query>
+    <query name="deleteList">
+        <![CDATA[delete from News where id in(:list)]]>
+    </query>
+</hibernate-mapping>

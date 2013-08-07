@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+        <h:outputStylesheet name="style.css" library="css" />
+        <h:outputScript name="validationNews.js" library="js"/>
+    </h:head>
+    <title>#{msg['other.system']}</title>
+    <h:body>
+        <div id="wrapper">
+            <div id="header"> 
+                <ui:insert name="header" >
+                    <ui:include src="/pages/faces/header.xhtml" />
+                </ui:insert>
+            </div>
+            <section id="middle">
+                <div id="container">
+                    <div id="content">
+                        <ui:insert name="content" >
+                            <ui:include src="/pages/faces/error.xhtml" />
+                        </ui:insert>
+                    </div>
+                </div>
+                <div class="sidebar" id="sideLeft">
+                    <ui:insert name="sidebar" >
+                        <ui:include src="/pages/faces/sidebar.xhtml" />
+                    </ui:insert>
+                </div>
+            </section>
+        </div>
+        <div id="footer"> 
+            <ui:insert name="footer" >
+                <ui:include src="/pages/faces/footer.xhtml" />
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

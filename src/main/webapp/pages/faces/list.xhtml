@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{newsListBean.loadNews}" />
+    </f:metadata>
+    <h:body>
+        <ui:composition template="/pages/layout/layout.xhtml">
+            <ui:define name="content">
+                <div id="location">
+                    <span>#{msg['other.news']}</span><i> >> </i>
+                    #{msg['list.location']}
+                </div>
+                <div id ="newsList">
+                    <h:form>
+                        <ui:repeat value="#{newsListBean.newsList}" var="newsEntry">
+                            <div class="newsEntry">
+                                <div class="newsDate">
+                                    <h:outputText value="#{newsEntry.date}">  
+                                        <f:convertDateTime pattern="MM/dd/yyyy"/>  
+                                    </h:outputText> 
+                                </div>
+                                <h3>
+                                    <span>#{msg['other.news']}
+                                        #{msg['view.Lbl001']}</span>
+                                        #{newsEntry.title}
+                                </h3>
+                                <div class="newsBrief">#{newsEntry.brief}</div>
+                                <div class="newsLinks">
+                                    <h:link outcome="view" value="#{msg['list.Lnk001']}">
+                                        <f:param name="id" value="#{newsEntry.id}" />
+                                    </h:link>
+                                    <h:link outcome="edit" value="#{msg['list.Lnk002']}">
+                                        <f:param name="id" value="#{newsEntry.id}" />
+                                    </h:link>
+                                    <h:selectBooleanCheckbox value="#{newsListBean.checkboxes[newsEntry.id]}" class="checkboxes"/>
+                                </div>
+                            </div>
+                        </ui:repeat>
+                        <div class="submit-button" >
+                            <script>
+                                var confirmSelected = '#{msg['list.E01']}';
+                                var deleteSelected = '#{msg['list.E04']}';
+                            </script>
+                            <h:commandButton rendered="#{not empty newsListBean.newsList}" 
+                                             action="#{newsListBean.deleteNews}" value="#{msg['list.Btn002']}" 
+                                             onclick="return validateCheckboxes();"/>
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

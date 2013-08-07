@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="newsDAO" class="com.epam.jsf.database.NewsDAOJDBCImpl"
+              scope="prototype">
+    </bean>
+	
+    <bean id="propertyConfigurer"
+              class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="/WEB-INF/jdbc.properties" />
+    </bean>
+
+    <bean id="simpleDataSource" class="com.epam.jsf.database.DataSource"
+              scope="singleton">
+        <constructor-arg index="0" value="${jdbc.driverClassName}" />
+        <constructor-arg index="1" value="${jdbc.url}" />
+        <constructor-arg index="2" value="${jdbc.username}" />
+        <constructor-arg index="3" value="${jdbc.password}" />
+        <constructor-arg index="4" value="${jdbc.minConnections}" />
+        <constructor-arg index="5" value="${jdbc.maxConnections}" />
+    </bean>
+	
+</beans>
